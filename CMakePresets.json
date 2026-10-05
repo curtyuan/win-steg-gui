@@ -1,0 +1,89 @@
+{
+    "version": 3,
+    "configurePresets": [
+        {
+            "name": "windows-base",
+            "hidden": true,
+            "generator": "Visual Studio 17 2022",
+            "binaryDir": "${sourceDir}/build",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "D:/2_Tools-Installed/vcpkg/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_CXX_STANDARD": "14",
+                "CMAKE_CXX_STANDARD_REQUIRED": "ON",
+                "CMAKE_CXX_EXTENSIONS": "OFF",
+                "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>",
+                "VCPKG_ROOT": "D:/2_Tools-Installed/vcpkg",
+                "VCPKG_INSTALLED_DIR": "D:/2_Tools-Installed/vcpkg/installed",
+                "VCPKG_TARGET_TRIPLET": "x64-windows-static"
+            },
+            "vendor": {
+                "microsoft.com/VisualStudioSettings/CMake/1.0": {
+                    "hostOS": ["Windows"],
+                    "intelliSenseMode": "windows-msvc-x64",
+                    "enableMicrosoftCodeAnalysis": true,
+                    "enableClangTidyCodeAnalysis": true,
+                    "launchTarget": "win-gui-steg.exe",
+                    "defaultLaunchTarget": "win-gui-steg.exe",
+                    "debuggerWorkingDirectory": "${sourceDir}",
+                    "configurationType": "Debug",
+                    "inheritEnvironments": ["msvc_x64"]
+                }
+            }
+        },
+        {
+            "name": "Debug",
+            "displayName": "Debug",
+            "architecture": "x64",
+            "inherits": "windows-base",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug"
+            }
+        },
+        {
+            "name": "Release",
+            "displayName": "Release",
+            "inherits": "windows-base",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_C_COMPILER": "D:/2_Tools-Installed/Akira-obfuscator/build_ninja/bin/clang-cl.exe",
+                "CMAKE_CXX_COMPILER": "D:/2_Tools-Installed/Akira-obfuscator/build_ninja/bin/clang-cl.exe",
+                "CMAKE_LINKER": "D:/2_Tools-Installed/Akira-obfuscator/build_ninja/bin/lld-link.exe",
+                "CMAKE_RC_COMPILER": "D:/2_Tools-Installed/Akira-obfuscator/build_ninja/bin/llvm-rc.exe",
+                "CMAKE_C_FLAGS": "--target=x86_64-pc-windows-msvc -mllvm -irobf -mllvm --irobf-indbr /EHsc",
+                "CMAKE_C_FLAGS_RELEASE": "/MT /O2 /DNDEBUG",
+                "CMAKE_CXX_FLAGS": "--target=x86_64-pc-windows-msvc -mllvm -irobf -mllvm -irobf-indbr -mllvm -irobf-icall -mllvm -irobf-indgv -mllvm -irobf-cff /Gy /GF /Gw /EHsc",
+                "CMAKE_CXX_FLAGS_RELEASE": "/MT /O2 /DNDEBUG",
+                "CMAKE_CXX_FLAGS_DEBUG": "/MT /Zi /Ob0 /Od /RTC1",
+                "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded",
+                "CMAKE_EXE_LINKER_FLAGS": "/LIBPATH:\"D:/2_Tools-Installed/Akira-obfuscator/build_ninja/lib\" /LIBPATH:\"C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/lib/x64\" /LIBPATH:\"C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/ucrt/x64\" /LIBPATH:\"C:/Program Files (x86)/Windows Kits/10/Lib/10.0.22621.0/um/x64\""
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "configurePreset": "Debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "Release",
+            "configurePreset": "Release",
+            "configuration": "Release"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "Debug",
+            "configurePreset": "Debug",
+            "output": {"outputOnFailure": true},
+            "execution": {"noTestsAction": "error", "stopOnFailure": true}
+        },
+        {
+            "name": "Release",
+            "configurePreset": "Release",
+            "output": {"outputOnFailure": true},
+            "execution": {"noTestsAction": "error", "stopOnFailure": true}
+        }
+    ]
+}

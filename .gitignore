@@ -1,0 +1,50 @@
+# Build and Output Directories
+/build*/
+/out/
+/x64/
+/bin/
+/vcpkg_installed/
+
+# IDE and Editor Files
+/.vs/
+/.vscode/
+*.suo
+*.user
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sdf
+*.ncb
+*.cachefile
+*.db
+
+# CMake Files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+*.cmake
+!CMakeLists.txt
+!CMakePresets.json
+
+# Compiled Files
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.obj
+*.exp
+*.tlog
+
+# Project Specific
+/assets/log/
+/assets/images/
+*.log
+*.bmp
+
+# Documentation
+/dox/
+/util/
+/doc/
+/build/
